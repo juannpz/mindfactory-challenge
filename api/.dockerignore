@@ -1,0 +1,33 @@
+# ===== Docker build ignore rules =====
+# These files/folders are NOT sent to the Docker daemon during build,
+# keeping the build context small and preventing cache invalidation.
+
+# Dependencies (installed fresh inside the image)
+node_modules/
+
+# Build output (generated inside the image)
+dist/
+
+# Git
+.git/
+
+# Tests (not needed in production image)
+test/
+**/*.spec.ts
+
+# Editor / OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment files (use docker compose --env-file instead)
+.env
+.env.local
+
+# Documentation
+docs/
+README.md
